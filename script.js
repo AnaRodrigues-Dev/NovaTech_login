@@ -1,7 +1,7 @@
 // Aguarda o carregamento completo do DOM
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Seleciona o formulário e a div de mensagens
+    // Seleciona os elementos do formulário
     const loginForm = document.getElementById('loginForm');
     const messageDiv = document.getElementById('message');
     
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         messageDiv.textContent = '';
         
         try {
-            // Faz a requisição para o servidor
+            // Faz a requisição para o servidor Node.js
             const response = await fetch('http://localhost:3000/api/login', {
                 method: 'POST',
                 headers: {
@@ -38,24 +38,23 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Verifica se o login foi bem-sucedido
             if (data.success) {
-                // Mostra mensagem de sucesso
-                showMessage('Login realizado com sucesso! Redirecionando...', 'success');
+                showMessage('✓ Login realizado com sucesso!', 'success');
                 
-                // Simula redirecionamento após 2 segundos
+                // Simula redirecionamento após 1.5 segundos
                 setTimeout(() => {
                     console.log('Usuário autenticado:', data.user);
                     // Aqui você redirecionaria para a dashboard
                     // window.location.href = '/dashboard.html';
-                }, 2000);
+                }, 1500);
             } else {
                 // Mostra mensagem de erro
-                showMessage(data.message || 'Erro ao fazer login', 'error');
+                showMessage('✗ ' + (data.message || 'Erro ao fazer login'), 'error');
             }
             
         } catch (error) {
             // Trata erros de conexão
             console.error('Erro:', error);
-            showMessage('Erro de conexão. Verifique se o servidor está rodando.', 'error');
+            showMessage('⚠ Servidor offline. Inicie com: npm start', 'error');
         }
     });
     
@@ -64,16 +63,4 @@ document.addEventListener('DOMContentLoaded', function() {
         messageDiv.textContent = text;
         messageDiv.className = `message ${type}`;
     }
-    
-    // Adiciona animação nos inputs ao focar
-    const inputs = document.querySelectorAll('.input-group input');
-    inputs.forEach(input => {
-        input.addEventListener('focus', function() {
-            this.parentElement.style.transform = 'scale(1.02)';
-        });
-        
-        input.addEventListener('blur', function() {
-            this.parentElement.style.transform = 'scale(1)';
-        });
-    });
 });

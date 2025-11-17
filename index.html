@@ -10,77 +10,76 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Container principal da página -->
-    <div class="container">
-        
-        <!-- Card de login -->
-        <div class="login-card">
-            
-            <!-- Logo e título -->
-            <div class="header">
-                <div class="logo">NT</div>
-                <h1>NovaTech</h1>
-                <p>Faça login para continuar</p>
+    <div class="main-content">
+        <div class="container">
+            <div class="login-card">
+                <div class="header">
+                    <div class="logo">NT</div>
+                    <h1>NovaTech</h1>
+                    <p>Entre com sua conta</p>
+                </div>
+
+                <form id="loginForm" class="login-form">
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="seu@email.com"
+                            required
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Senha</label>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            placeholder="••••••••"
+                            required
+                        >
+                    </div>
+
+                    <div class="options">
+                        <label class="checkbox">
+                            <input type="checkbox" id="remember">
+                            <span>Lembrar-me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                    </div>
+
+                    <button type="submit" class="btn-login">
+                        Entrar
+                    </button>
+
+                    <div id="message" class="message"></div>
+                </form>
+
+                <div class="divider">
+                    <p>Não tem uma conta? <a href="#" class="signup-link">Criar conta</a></p>
+                </div>
             </div>
-
-            <!-- Formulário de login -->
-            <form id="loginForm" class="login-form">
-                
-                <!-- Campo de email -->
-                <div class="input-group">
-                    <label for="email">Email</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        placeholder="seu@email.com"
-                        required
-                    >
-                </div>
-
-                <!-- Campo de senha -->
-                <div class="input-group">
-                    <label for="password">Senha</label>
-                    <input 
-                        type="password" 
-                        id="password" 
-                        name="password" 
-                        placeholder="••••••••"
-                        required
-                    >
-                </div>
-
-                <!-- Checkbox "Lembrar-me" -->
-                <div class="options">
-                    <label class="checkbox">
-                        <input type="checkbox" id="remember">
-                        <span>Lembrar-me</span>
-                    </label>
-                    <a href="#" class="forgot-password">Esqueceu a senha?</a>
-                </div>
-
-                <!-- Botão de login -->
-                <button type="submit" class="btn-login">
-                    Entrar
-                </button>
-
-                <!-- Mensagem de erro/sucesso -->
-                <div id="message" class="message"></div>
-            </form>
-
-            <!-- Rodapé com link de cadastro -->
-            <div class="footer">
-                <p>Não tem uma conta? <a href="#" class="signup-link">Cadastre-se</a></p>
-            </div>
-        </div>
-
-        <!-- Informações de teste (remover em produção) -->
-        <div class="test-info">
-            <p><strong>Credenciais de teste:</strong></p>
-            <p>Email: admin@novatech.com</p>
-            <p>Senha: admin123</p>
         </div>
     </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>💡 <strong>Credenciais de teste</strong></p>
+            <span class="footer-divider">|</span>
+            <div class="test-credentials">
+                <div class="credential">
+                    <span>Email:</span>
+                    <code>admin@novatech.com</code>
+                </div>
+                <div class="credential">
+                    <span>Senha:</span>
+                    <code>admin123</code>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Link para o arquivo JavaScript -->
     <script src="script.js"></script>
