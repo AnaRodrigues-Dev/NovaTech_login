@@ -8,13 +8,13 @@ const app = express();
 const PORT = 3000;
 
 // Configurações de middlewares
-app.use(bodyParser.json()); // Para processar JSON
-app.use(bodyParser.urlencoded({ extended: true })); // Para processar formulários
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// Serve arquivos estáticos da pasta public
-app.use(express.static(path.join(__dirname, '../public')));
+// Serve arquivos estáticos da raiz do projeto
+app.use(express.static(__dirname));
 
-// Adiciona headers CORS para permitir requisições
+// Adiciona headers CORS
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -22,7 +22,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// Base de dados simulada (em produção, use um banco de dados real)
+// Base de dados simulada
 const usuarios = [
     {
         id: 1,
@@ -38,20 +38,17 @@ const usuarios = [
     }
 ];
 
-// Rota principal - serve o index.html
+// Rota principal
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Rota de login (API)
 app.post('/api/login', (req, res) => {
-    // Pega os dados enviados pelo formulário
     const { email, password, remember } = req.body;
     
-    // Log para debug
     console.log('Tentativa de login:', { email, remember });
     
-    // Valida se os campos foram preenchidos
     if (!email || !password) {
         return res.status(400).json({
             success: false,
@@ -59,12 +56,9 @@ app.post('/api/login', (req, res) => {
         });
     }
     
-    // Busca o usuário no banco de dados simulado
     const usuario = usuarios.find(u => u.email === email && u.password === password);
     
-    // Verifica se encontrou o usuário
     if (usuario) {
-        // Login bem-sucedido
         return res.json({
             success: true,
             message: 'Login realizado com sucesso',
@@ -75,7 +69,6 @@ app.post('/api/login', (req, res) => {
             }
         });
     } else {
-        // Credenciais inválidas
         return res.status(401).json({
             success: false,
             message: 'Email ou senha incorretos'
@@ -83,7 +76,7 @@ app.post('/api/login', (req, res) => {
     }
 });
 
-// Rota para teste (verifica se o servidor está rodando)
+// Rota de status
 app.get('/api/status', (req, res) => {
     res.json({
         status: 'online',
