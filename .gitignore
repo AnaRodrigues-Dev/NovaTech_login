@@ -1,0 +1,22 @@
+## 📄 **Arquivo 6: .gitignore**
+```
+# Dependências do Node.js
+node_modules/
+
+# Arquivos de log
+*.log
+npm-debug.log*
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de ambiente
+.env
+.env.local
+
+# Arquivos do editor
+.vscode/
+.idea/
+*.swp
+*.swo
