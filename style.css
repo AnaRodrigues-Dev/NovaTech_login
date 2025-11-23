@@ -1,11 +1,10 @@
-/* Reset básico */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Configuração do body */
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     background: #f8fafc;
@@ -14,7 +13,6 @@ body {
     flex-direction: column;
 }
 
-/* Container principal - ocupa o espaço disponível */
 .main-content {
     flex: 1;
     display: flex;
@@ -28,7 +26,6 @@ body {
     max-width: 400px;
 }
 
-/* Card de login */
 .login-card {
     background: white;
     border-radius: 16px;
@@ -38,13 +35,11 @@ body {
     border: 1px solid #e2e8f0;
 }
 
-/* Cabeçalho */
 .header {
     text-align: center;
     margin-bottom: 32px;
 }
 
-/* Logo */
 .logo {
     width: 56px;
     height: 56px;
@@ -71,14 +66,13 @@ body {
     font-size: 14px;
 }
 
-/* Formulário de login */
+
 .login-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-/* Grupo de inputs */
 .input-group {
     display: flex;
     flex-direction: column;
@@ -111,7 +105,6 @@ body {
     color: #94a3b8;
 }
 
-/* Opções (lembrar-me e esqueceu senha) */
 .options {
     display: flex;
     justify-content: space-between;
@@ -146,7 +139,6 @@ body {
     color: #2563eb;
 }
 
-/* Botão de login */
 .btn-login {
     background: #3b82f6;
     color: white;
@@ -170,7 +162,6 @@ body {
     transform: translateY(0);
 }
 
-/* Mensagens de erro/sucesso */
 .message {
     padding: 12px;
     border-radius: 8px;
@@ -194,7 +185,6 @@ body {
     display: block;
 }
 
-/* Divisor entre formulário e link de cadastro */
 .divider {
     text-align: center;
     margin-top: 24px;
@@ -218,7 +208,6 @@ body {
     text-decoration: underline;
 }
 
-/* Footer fixo na parte inferior */
 .footer {
     background: white;
     border-top: 1px solid #e2e8f0;
@@ -278,7 +267,6 @@ body {
     font-weight: 500;
 }
 
-/* Responsividade para tablets */
 @media (max-width: 768px) {
     .main-content {
         padding: 30px 20px;
@@ -302,7 +290,6 @@ body {
     }
 }
 
-/* Responsividade para celulares */
 @media (max-width: 480px) {
     .login-card {
         padding: 28px 20px;
